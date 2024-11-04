@@ -10,8 +10,7 @@ public class Ant : Enemy
     private void Start()
     {
         Init(10);
-        Debug.Log("Ant health " + Health);
-        
+        Debug.Log("Ant health " + Health);    
     }
     public void FixedUpdate()
     {

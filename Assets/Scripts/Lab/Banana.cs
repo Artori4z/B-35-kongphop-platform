@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Banana : Weapon
 {
-    private float speed;
-    
+    [SerializeField]private float speed;
+    //override
     public override void Move()
     {
-        Debug.Log(" ");
+        Debug.Log("Banana moves with constant speed using Transform");
     }
     public override void OnHitWith(Character character)
     {
 
     }
-    private void Start()
+    //start
+    private void Update()
     {
-        Damage = 30;
-        speed = 4;
-
+        Move();
     }
 }
