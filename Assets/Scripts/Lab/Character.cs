@@ -24,6 +24,7 @@ public abstract class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        IsDead();
     }
     public void Init(int newHealth)
     {

@@ -17,13 +17,12 @@ public class Player : Character, Ishootable
 
         if (Input.GetButtonDown("Fire1") && BulletTime >= bulletSpawnTime)
         {
-            Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
+            GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
+            Banana banana = obj.GetComponent<Banana>();
+            banana.Init(10, this);
             BulletTime = 0;
-            Debug.Log("555555555555");
         }
-
     }
-    //
     public void Start()
     {
         Init(100);
@@ -38,7 +37,4 @@ public class Player : Character, Ishootable
     {
         bulletTime += Time.deltaTime;
     }
-
-
-
 }

@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Croccodile : Enemy
+public class Croccodile : Enemy,Ishootable
 {
     [SerializeField] private float attackRange;
     public Player player;
     [SerializeField] private GameObject bullet;
+    public GameObject Bullet { get { return bullet; } set { bullet = value; } }
     [SerializeField] private Transform bulletSpawnPoint;
+    public Transform SpawnPoint{ get { return SpawnPoint; } set { SpawnPoint = value; } }
     [SerializeField] private float bulletSpawnTime;
+    public float BulletSpawnTime { get { return bulletSpawnTime; } set { bulletSpawnTime = value; } }
+    public float BulletTime { get { return bulletTimer; } set { bulletTimer = value; } }
     [SerializeField] private float bulletTimer;
+
     private void Update()
     {
         bulletTimer -= Time.deltaTime;
-
         Behaviour();
         if (bulletTimer <= 0)
         {
@@ -29,11 +33,19 @@ public class Croccodile : Enemy
             Shoot();
         }
     }
-    private void Shoot() 
+    public void Shoot() 
     {
+        anim.SetTrigger("Shoot");
         if (bulletTimer <= 0) 
         {
-            Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            Rock rock = obj.GetComponent<Rock>();
+            rock.Init(20, this);
+            bulletTimer = bulletSpawnTime;
         }
+    }
+    void Start()
+    {
+        Init(100);
     }
 }
