@@ -5,8 +5,6 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] private int damage;
-    //damage get set
-
     public int Damage
     {
         get {
@@ -16,18 +14,13 @@ public abstract class Weapon : MonoBehaviour
             damage = value;
         }
     }
+  
     //abstract
     protected Ishootable shooter;
 
     public abstract void OnHitWith(Character character);
     public abstract void Move();
-    public int GetShootDirection()
-    {
-        float shootDir = shooter.SpawnPoint.position.x - shooter.SpawnPoint.parent.position.x;
-        if (shootDir > 0)
-            return 1;
-            else return -1;
-    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         OnHitWith(other.GetComponent<Character>());
@@ -37,6 +30,13 @@ public abstract class Weapon : MonoBehaviour
     {
         Damage = newDamage;
         shooter = ower;
+    }
+    public int GetShootDirection()
+    {
+        float shootDir = shooter.SpawnPoint.position.x - shooter.SpawnPoint.parent.position.x;
+        if (shootDir > 0)
+            return 1;
+        else return -1;
     }
 }
 

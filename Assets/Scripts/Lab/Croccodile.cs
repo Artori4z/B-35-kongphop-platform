@@ -9,7 +9,7 @@ public class Croccodile : Enemy,Ishootable
     [SerializeField] private GameObject bullet;
     public GameObject Bullet { get { return bullet; } set { bullet = value; } }
     [SerializeField] private Transform bulletSpawnPoint;
-    public Transform SpawnPoint{ get { return SpawnPoint; } set { SpawnPoint = value; } }
+    public Transform SpawnPoint{ get { return bulletSpawnPoint; } set { bulletSpawnPoint = value; } }
     [SerializeField] private float bulletSpawnTime;
     public float BulletSpawnTime { get { return bulletSpawnTime; } set { bulletSpawnTime = value; } }
     public float BulletTime { get { return bulletTimer; } set { bulletTimer = value; } }
@@ -36,12 +36,12 @@ public class Croccodile : Enemy,Ishootable
     public void Shoot() 
     {
         anim.SetTrigger("Shoot");
-        if (bulletTimer <= 0) 
+        if (BulletTime <= 0) 
         {
-            GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
             Rock rock = obj.GetComponent<Rock>();
             rock.Init(20, this);
-            bulletTimer = bulletSpawnTime;
+            BulletTime = BulletSpawnTime;
         }
     }
     void Start()
