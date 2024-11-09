@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Banana : Weapon
 {
-    [SerializeField]private float speed;
+    private float speed;
     //override
     private void Start()
     {

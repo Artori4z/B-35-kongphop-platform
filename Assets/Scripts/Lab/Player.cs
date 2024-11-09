@@ -21,6 +21,7 @@ public class Player : Character, Ishootable
             Banana banana = obj.GetComponent<Banana>();
             banana.Init(10, this);
             BulletTime = 0;
+
         }
     }
     public void Start()

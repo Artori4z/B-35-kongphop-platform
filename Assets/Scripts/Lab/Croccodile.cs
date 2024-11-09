@@ -17,11 +17,11 @@ public class Croccodile : Enemy,Ishootable
 
     private void Update()
     {
-        bulletTimer -= Time.deltaTime;
+        BulletTime -= Time.deltaTime;
         Behaviour();
-        if (bulletTimer <= 0)
+        if (BulletTime <= 0)
         {
-            bulletTimer = bulletSpawnTime;
+            BulletTime = BulletSpawnTime;
         }
     }
     public override void Behaviour()
@@ -35,9 +35,9 @@ public class Croccodile : Enemy,Ishootable
     }
     public void Shoot() 
     {
-        anim.SetTrigger("Shoot");
         if (BulletTime <= 0) 
         {
+            anim.SetTrigger("Shoot");
             GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
             Rock rock = obj.GetComponent<Rock>();
             rock.Init(20, this);
