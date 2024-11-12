@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class Hpbar : MonoBehaviour
 {
-    [SerializeField] public Slider HpSlider;
-    private float hp;
-    private float MaxHp;
+    [SerializeField] private Slider slider;
 
-    private void Awake()
+    public void SetMaxHP(int maxHealth)
     {
-        MaxHp = 100f;
-        hp = MaxHp;
+        slider.maxValue = maxHealth;
+    }
+
+
+    public void UpdateHealthBar(int currentHP)
+    {
+        slider.value = currentHP;
     }
 }

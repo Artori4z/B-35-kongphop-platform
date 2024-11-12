@@ -15,6 +15,9 @@ public abstract class Character : MonoBehaviour
             health = value;
         }
     }
+
+    [SerializeField] Hpbar hpbar;
+
     public Animator anim;
     public Rigidbody2D rb;
     public bool IsDead() 
@@ -24,10 +27,13 @@ public abstract class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        hpbar.UpdateHealthBar(health);
         IsDead();
     }
     public void Init(int newHealth)
     {
         Health = newHealth;
+        hpbar.SetMaxHP(newHealth);
+        hpbar.UpdateHealthBar(Health);
     }
 }
