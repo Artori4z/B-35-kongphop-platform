@@ -12,7 +12,6 @@ public class Hpbar : MonoBehaviour
         slider.maxValue = maxHealth;
     }
 
-
     public void UpdateHealthBar(int currentHP)
     {
         slider.value = currentHP;

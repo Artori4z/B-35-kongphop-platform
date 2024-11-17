@@ -27,7 +27,7 @@ public abstract class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
-        hpbar.UpdateHealthBar(health);
+        hpbar.UpdateHealthBar(Health);
         IsDead();
     }
     public void Init(int newHealth)

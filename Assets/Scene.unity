@@ -2334,6 +2334,7 @@ GameObject:
   - component: {fileID: 1347374970}
   - component: {fileID: 1347374969}
   - component: {fileID: 1347374968}
+  - component: {fileID: 1347374971}
   m_Layer: 5
   m_Name: Hpbar
   m_TagString: Untagged
@@ -2424,6 +2425,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1347374971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347374966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae6643cf6e42e949965562f34231f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 2024410786}
 --- !u!1 &1353327556
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,7 +2705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  hpbar: {fileID: 0}
+  hpbar: {fileID: 1347374971}
   anim: {fileID: 1447177632}
   rb: {fileID: 1447177634}
   attackRange: 6
@@ -2727,6 +2741,7 @@ GameObject:
   - component: {fileID: 1473778949}
   - component: {fileID: 1473778948}
   - component: {fileID: 1473778947}
+  - component: {fileID: 1473778950}
   m_Layer: 5
   m_Name: HpBar
   m_TagString: Untagged
@@ -2817,6 +2832,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1473778950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473778945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae6643cf6e42e949965562f34231f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 274142034}
 --- !u!4 &1493215482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 407626, guid: efff92728486e44de9714de91b3abbd2, type: 3}
@@ -2947,7 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  hpbar: {fileID: 0}
+  hpbar: {fileID: 1473778950}
   anim: {fileID: 0}
   rb: {fileID: 1496521846}
   velocity: {x: -1, y: 0}

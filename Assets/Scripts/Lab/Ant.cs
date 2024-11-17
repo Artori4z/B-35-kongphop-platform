@@ -9,8 +9,8 @@ public class Ant : Enemy
     [SerializeField] private Transform[] movePoints;
     private void Start()
     {
-        Init(10);
-        Debug.Log("Ant health " + Health);    
+        Init(100);
+        //Debug.Log("Ant health " + Health);    
     }
     public void FixedUpdate()
     {
